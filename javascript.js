@@ -14,8 +14,6 @@ function getComputerChoice() {
     }
 }
 
-console.log(getComputerChoice());
-
 // FUNCTION PROMPTING THE USER FOR THEIR CHOICE
 
 function getHumanChoice() {
@@ -32,4 +30,37 @@ function getHumanChoice() {
     }
 }
 
-console.log(getHumanChoice());
+// VARIABLES COUNTING COMPUTER'S AND PLAYER'S SCORES
+
+let computerScore = 0;
+let humanScore = 0;
+
+// FUNCTION ALLOWING TO PLAY A SINGLE ROUND
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        return 'That\'s a draw!';
+    } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+        humanScore += 1;
+        return 'You won! Rock beats scissors!';
+    } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+        humanScore += 1;
+        return 'You won! Paper beats rock!';
+    } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+        humanScore += 1;
+        return 'You won! Scissors beat paper!';
+    } else {
+        computerScore += 1;
+        return 'You lost, try again!';
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+console.log(`Your choice: ${humanSelection}.`);
+console.log(`Computer\'s choice: ${computerSelection}.`);
+
+console.log(playRound(humanSelection, computerSelection));
+console.log(humanScore);
+console.log(computerScore);
