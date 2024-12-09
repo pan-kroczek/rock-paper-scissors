@@ -1,5 +1,3 @@
-console.log('hello');
-
 // FUNCTION GENERATING RANDOM ITEM FOR THE COMPUTER SIDE
 
 function getComputerChoice() {
@@ -30,37 +28,52 @@ function getHumanChoice() {
     }
 }
 
-// VARIABLES COUNTING COMPUTER'S AND PLAYER'S SCORES
+// FUNCTION ALLOWING TO PLAY A FULL GAME OF FIVE ROUNDS
 
-let computerScore = 0;
-let humanScore = 0;
+function playGame() {
 
-// FUNCTION ALLOWING TO PLAY A SINGLE ROUND
+    // VARIABLES COUNTING COMPUTER'S AND PLAYER'S SCORES
 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        return 'That\'s a draw!';
-    } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-        humanScore += 1;
-        return 'You won! Rock beats scissors!';
-    } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-        humanScore += 1;
-        return 'You won! Paper beats rock!';
-    } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-        humanScore += 1;
-        return 'You won! Scissors beat paper!';
+    let computerScore = 0;
+    let humanScore = 0;
+
+    // FUNCTION ALLOWING TO PLAY A SINGLE ROUND
+
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            console.log('That\'s a draw!');
+        } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
+            humanScore += 1;
+            console.log('You won! Rock beats scissors!');
+        } else if (humanChoice === 'paper' && computerChoice === 'rock') {
+            humanScore += 1;
+            console.log('You won! Paper beats rock!');
+        } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
+            humanScore += 1;
+            console.log('You won! Scissors beat paper!');
+        } else {
+            computerScore += 1;
+            console.log('You lost, try again!');
+        }
+    }
+
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        console.log(`Your choice: ${humanSelection}`);
+        console.log(`Computer choice: ${computerSelection}`);
+        playRound(humanSelection, computerSelection);
+        console.log(`Your score is: ${humanScore}`);
+        console.log(`Computer score is: ${computerScore}`);
+    }
+
+    if (computerScore > humanScore) {
+        console.log(`Computer won with ${computerScore} points, best luck next time!`);
+    } else if (humanScore > computerScore) {
+        console.log(`You won! You scored ${humanScore} points!`);
     } else {
-        computerScore += 1;
-        return 'You lost, try again!';
+        console.log(`Wow, that's a draw!`);
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(`Your choice: ${humanSelection}.`);
-console.log(`Computer\'s choice: ${computerSelection}.`);
-
-console.log(playRound(humanSelection, computerSelection));
-console.log(humanScore);
-console.log(computerScore);
+playGame();
