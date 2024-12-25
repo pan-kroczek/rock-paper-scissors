@@ -37,8 +37,14 @@ function playRound(playerChoice, computerChoice) {
 function whoWon() {
     if (computerScore === 5) {
         score.textContent = `Computer won with ${computerScore} points.`;
+        document.querySelector("#rock").disabled = true;
+        document.querySelector("#paper").disabled = true;
+        document.querySelector("#scissors").disabled = true;
     } else if (playerScore === 5) {
         score.textContent = `Player won with ${playerScore} points.`;
+        document.querySelector("#rock").disabled = true;
+        document.querySelector("#paper").disabled = true;
+        document.querySelector("#scissors").disabled = true;
     } else {
         score.textContent = `Computer: ${computerScore}. Player: ${playerScore}.`;
     }

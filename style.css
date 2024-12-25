@@ -10,10 +10,16 @@ body {
     align-items: center;
     padding-top: 40px;
     margin: 0;
-    gap: 16px;
+    gap: 24px;
+    background-color: #f5f5f5;
 }
 
 h1 {
+    margin: 0;
+    text-align: center;
+}
+
+h3 {
     margin: 0;
     text-align: center;
 }
@@ -37,9 +43,30 @@ h1 {
     align-items: center;
     justify-content: center;
     color: white;
-    background-color: grey;
-    width: 96px;
-    height: 80px;
+    background-color: #008442;
+    width: 120px;
+    height: 72px;
     border: none;
     border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 9px #b3b3b3;
+}
+
+.choice:hover {background-color: #00B75B}
+
+.choice:active {
+    background-color: #00B75B;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+button {
+    display: flex;
+    border: 0px;
+    padding: 12px 24px 12px 24px;
+    border-radius: 4px;
+    background-color: #717171;
+    color: white;
+    font-weight: 400;
 }
