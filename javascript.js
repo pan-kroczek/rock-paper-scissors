@@ -20,14 +20,18 @@ let playerScore = 0;
 
 function playRound(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
-        console.log('That\'s a draw!');
+        scoreExplained.textContent = `That's a draw!`;
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+        scoreExplained.textContent = `You won! Computer chose ${computerChoice}!`;
         playerScore += 1;
     } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+        scoreExplained.textContent = `You won! Computer chose ${computerChoice}!`;
         playerScore += 1;
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+        scoreExplained.textContent = `You won! Computer chose ${computerChoice}!`;
         playerScore += 1;
     } else {
+        scoreExplained.textContent = `You lost! Computer chose ${computerChoice}.`;
         computerScore += 1;
     }
 }
@@ -57,8 +61,10 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
 const scoreDiv = document.querySelector("#result");
+const scoreExplained = document.createElement("h5");
 const score = document.createElement("h3");
 scoreDiv.appendChild(score);
+scoreDiv.appendChild(scoreExplained);
 
 const reset = document.createElement("button");
 reset.textContent = 'Play again';
